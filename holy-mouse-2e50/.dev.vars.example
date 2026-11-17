@@ -1,0 +1,10 @@
+# Copia este archivo como `.dev.vars` para desarrollo local con `npm run dev`.
+# `.dev.vars` esta en .gitignore: nunca lo subas al repo.
+RIOT_API_KEY=RGAPI-tu-key-de-desarrollo
+
+# Opcional: origenes permitidos separados por coma. "*" deja pasar a cualquiera.
+# ALLOWED_ORIGINS=http://localhost:5500,https://tu-app.pages.dev
+
+# Opcional: rate limit por IP (requests por ventana / ventana en segundos).
+# RATE_LIMIT_MAX=120
+# RATE_LIMIT_WINDOW=60

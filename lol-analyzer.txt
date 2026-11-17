@@ -1,0 +1,152 @@
+PROYECTO: LOL SQUAD ANALYZER
+
+Idea General
+-------------
+Aplicación web para comparar automáticamente estadísticas de League of Legends entre amigos utilizando la API oficial de Riot Games.
+
+Objetivo
+--------
+Crear un ranking privado del grupo que vaya más allá del sistema oficial de Riot, mostrando comparaciones, estadísticas avanzadas y análisis de rendimiento.
+
+Funciones principales
+---------------------
+
+1. Registro de jugadores
+- Agregar Riot ID (ej: Demian#LAS)
+- Guardar lista de amigos
+- Actualizar datos automáticamente
+
+2. Importación de datos desde Riot API
+- Perfil del jugador OK
+- Rango actual OK
+- LP OK (league points ( getRanckedStats)) OK
+- Victorias y derrotas
+- Historial de partidas (EN PROGRESO)
+- Campeones más jugados OK
+- Estadísticas recientes
+
+3. Comparación entre jugadores
+- Winrate
+- KDA
+- CS por minuto
+- Oro por minuto
+- Daño por minuto
+- Visión por minuto
+- Campeones favoritos
+
+Ejemplo:
+
+Demian vs Lucas
+
+✅ KDA: Demian
+✅ CS/min: Demian
+✅ Winrate: Lucas
+✅ Daño: Demian
+
+Resultado:
+Demian 3 - 1 Lucas
+
+4. Ranking personalizado
+Crear un score propio basado en:
+
+- Rango
+- Winrate
+- KDA
+- CS/min
+- Partidas recientes
+
+Ejemplo:
+
+🥇 Demian - 1850 pts
+🥈 Lucas - 1790 pts
+🥉 Juan - 1700 pts
+
+5. Dashboard General
+Mostrar:
+
+- Mejor jugador del grupo
+- Jugador más activo
+- Mejor ADC
+- Mejor Mid
+- Mejor Jungla
+- Mejor Support
+- MVP semanal
+
+6. Estadísticas de equipo
+- Winrate cuando juegan juntos
+- Mejor dúo
+- Peor dúo
+- Campeón más utilizado por el grupo
+- Roles más jugados
+
+7. Gráficos
+Utilizar Chart.js
+
+- Evolución del rango
+- Evolución del winrate
+- Historial de LP
+- Comparación visual de estadísticas
+
+8. Sistema de Logros
+🏆 Primera Victoria
+🔥 5 Victorias Seguidas
+⚡ 100 Partidas Jugadas
+👑 MVP de la Semana
+💀 Rey del Tilt
+
+Tecnologías
+-----------
+
+Frontend
+- React
+- Bootstrap
+
+Backend
+- Node.js
+- Express
+
+Base de Datos
+- MySQL
+
+API
+- Riot Games API
+
+Extras Futuros
+--------------
+
+- Soporte para Valorant
+- Soporte para TFT
+- Sistema de torneos internos
+- Predicción de ganador entre dos jugadores
+- Discord Bot conectado a la web
+- Perfil público para compartir estadísticas
+
+Valor para Portfolio
+--------------------
+
+Demuestra:
+- Consumo de APIs REST
+- Fetch/Axios
+- React
+- Node.js
+- Bases de Datos
+- Autenticación
+- Gráficos
+- Estadísticas
+- Diseño de dashboards
+- Procesamiento de datos reales
+
+Nombre Tentativo
+----------------
+
+LoL Squad Analyzer
+RankDiff
+Gap Detector
+SkillGap
+Diff.gg
+SquadStats
+Matecito Stats
+Tilt Tracker
+
+------------------------
+

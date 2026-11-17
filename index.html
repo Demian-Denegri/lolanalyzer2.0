@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#050b12">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='10' fill='%23050b12'/%3E%3Cpath d='M24 6 40 15v18L24 42 8 33V15Z' fill='none' stroke='%23c8aa6e' stroke-width='2'/%3E%3Cpath d='M18 32 24 17l6 15M20.5 27h7' fill='none' stroke='%23f0e6d2' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E">
+    <meta name="description" content="LOL Analyzer: comparador de estadísticas de League of Legends. Analiza winrate, KDA, economía, daño y visión de hasta cinco invocadores.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>LOL Analyzer — Comparador de rendimiento</title>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="brand" href="#" aria-label="LOL Analyzer, ir al inicio">
+                <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+                    <defs>
+                        <linearGradient id="brandGold" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#f0e6d2"/>
+                            <stop offset="0.55" stop-color="#c8aa6e"/>
+                            <stop offset="1" stop-color="#785a28"/>
+                        </linearGradient>
+                    </defs>
+                    <path d="M24 2.5 43.5 13.5v21L24 45.5 4.5 34.5v-21Z" fill="rgba(200,170,110,0.05)" stroke="url(#brandGold)" stroke-width="1.6"/>
+                    <path d="M24 9.5 37 17v14l-13 7.5L11 31V17Z" fill="none" stroke="rgba(200,170,110,0.4)" stroke-width="1"/>
+                    <path d="M17.5 32 24 15.5 30.5 32" fill="none" stroke="url(#brandGold)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M20 26h8" fill="none" stroke="url(#brandGold)" stroke-width="2.2" stroke-linecap="round"/>
+                </svg>
+                <span class="brand__type">
+                    <span class="brand__name">LOL Analyzer</span>
+                    <span class="brand__tagline">Comparador de rendimiento</span>
+                </span>
+            </a>
+
+            <nav class="site-nav" aria-label="Navegación principal">
+                <a href="#buscador">Comparar</a>
+                <a href="#comparativa">Rendimiento</a>
+                <a href="#partidasRecientes">Historial</a>
+            </nav>
+
+            <p class="header-source">
+                <span class="header-source__dot" aria-hidden="true"></span>
+                Datos de Riot API
+            </p>
+        </div>
+    </header>
+
+    <main id="contenido">
+        <section class="hero" aria-labelledby="heroTitulo">
+            <div class="hero__copy">
+                <p class="eyebrow"><span aria-hidden="true"></span>League of Legends · Análisis competitivo</p>
+                <h1 id="heroTitulo">Tu squad. Sus números.<br><span class="hero__accent">La diferencia.</span></h1>
+                <p class="hero__lede">
+                    Compara el rendimiento de hasta cinco invocadores con datos reales de sus
+                    últimas 20 partidas. Winrate, KDA, economía y visión en una sola lectura.
+                </p>
+                <div class="hero__actions">
+                    <a class="button button--gold" href="#buscador">
+                        Comparar invocadores
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                    <a class="button button--ghost" href="#comparativa">Ver métricas</a>
+                </div>
+                <ul class="hero__chips" aria-label="Métricas disponibles">
+                    <li>Winrate</li>
+                    <li>KDA</li>
+                    <li>CS/min</li>
+                    <li>Oro/min</li>
+                    <li>Daño/min</li>
+                    <li>Visión/min</li>
+                </ul>
+            </div>
+
+            <div class="hero__visual" aria-hidden="true">
+                <div class="hexgate">
+                    <svg class="hexgate__crest" viewBox="0 0 320 320" focusable="false">
+                        <defs>
+                            <linearGradient id="heroGold" x1="48" y1="28" x2="276" y2="296" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#f0e6d2"/>
+                                <stop offset="0.42" stop-color="#c8aa6e"/>
+                                <stop offset="1" stop-color="#785a28"/>
+                            </linearGradient>
+                            <linearGradient id="heroTeal" x1="110" y1="96" x2="214" y2="228" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#7af5e9"/>
+                                <stop offset="1" stop-color="#0a8f8a"/>
+                            </linearGradient>
+                            <radialGradient id="heroGlow" cx="50%" cy="50%" r="50%">
+                                <stop stop-color="#0ac8b9" stop-opacity="0.16"/>
+                                <stop offset="1" stop-color="#0ac8b9" stop-opacity="0"/>
+                            </radialGradient>
+                        </defs>
+                        <circle cx="160" cy="160" r="152" fill="url(#heroGlow)"/>
+                        <circle cx="160" cy="160" r="132" fill="none" stroke="rgba(200,170,110,0.22)" stroke-dasharray="3 12"/>
+                        <path d="M160 22 282 92v136l-122 70L38 228V92Z" fill="rgba(5,13,20,0.45)" stroke="url(#heroGold)" stroke-width="1.6"/>
+                        <path d="M160 42 264 102v116l-104 60-104-60V102Z" fill="none" stroke="rgba(200,170,110,0.3)" stroke-width="1"/>
+                        <path d="M160 66 246 116v88l-86 50-86-50v-88Z" fill="rgba(10,200,185,0.03)" stroke="rgba(10,200,185,0.22)" stroke-width="1"/>
+                        <path d="M160 96 210 160l-50 64-50-64Z" fill="none" stroke="url(#heroTeal)" stroke-width="1.4"/>
+                        <path d="M160 118 194 160l-34 42-34-42Z" fill="rgba(200,170,110,0.08)" stroke="rgba(200,170,110,0.35)" stroke-width="1"/>
+                        <path d="M160 130v60M143 160h34" stroke="url(#heroGold)" stroke-width="1.6" stroke-linecap="round" opacity="0.65"/>
+                        <circle cx="160" cy="160" r="7" fill="url(#heroGold)"/>
+                        <circle cx="160" cy="160" r="16" fill="none" stroke="rgba(240,230,210,0.35)" stroke-width="1"/>
+                        <path d="M160 22l5 5-5 5-5-5ZM160 288l5 5-5 5-5-5ZM38 228l5 5-5 5-5-5ZM282 82l5 5-5 5-5-5Z" fill="#c8aa6e" opacity="0.8"/>
+                    </svg>
+                    <span class="hexgate__metric hexgate__metric--top"><strong>5</strong><span>invocadores</span></span>
+                    <span class="hexgate__metric hexgate__metric--left"><strong>20</strong><span>partidas</span></span>
+                    <span class="hexgate__metric hexgate__metric--bottom"><strong>8</strong><span>indicadores</span></span>
+                </div>
+                <p class="hero__visual-caption">Una lectura. Cinco perspectivas.</p>
+            </div>
+
+            <ul class="hero__facts">
+                <li><span class="hero__fact-value">01—05</span><span>invocadores por análisis</span></li>
+                <li><span class="hero__fact-value">20</span><span>partidas por jugador</span></li>
+                <li><span class="hero__fact-value">08</span><span>indicadores frente a frente</span></li>
+            </ul>
+        </section>
+        <section id="buscador" class="panel" aria-labelledby="buscadorTitulo">
+            <div class="section-head">
+                <div class="section-head__text">
+                    <p class="section-kicker"><span aria-hidden="true">01</span>Selección</p>
+                    <h2 id="buscadorTitulo">Arma tu comparación</h2>
+                    <p class="buscador__ayuda">
+                        Completa entre 1 y 5 Riot IDs. Los espacios que dejes vacíos
+                        quedan fuera del análisis.
+                    </p>
+                </div>
+                <p class="format-hint">
+                    <span class="format-hint__label">Formato</span>
+                    <span class="format-hint__value">Nombre + TAG</span>
+                </p>
+            </div>
+
+            <div class="buscador__jugadores">
+                <div class="jugador-input">
+                    <span class="jugador-input__numero" aria-hidden="true">1</span>
+                    <div class="jugador-input__campos">
+                        <div class="campo">
+                            <label class="visualmente-oculto" for="nombreInvocador1">Nombre del invocador 1</label>
+                            <input type="text" id="nombreInvocador1" placeholder="Nombre de invocador" autocomplete="off" spellcheck="false">
+                        </div>
+                        <div class="campo campo--tag">
+                            <label class="visualmente-oculto" for="tag1">TAG del invocador 1</label>
+                            <span class="campo__prefix" aria-hidden="true">#</span>
+                            <input type="text" id="tag1" placeholder="TAG" autocomplete="off" spellcheck="false" maxlength="5">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="jugador-input">
+                    <span class="jugador-input__numero" aria-hidden="true">2</span>
+                    <div class="jugador-input__campos">
+                        <div class="campo">
+                            <label class="visualmente-oculto" for="nombreInvocador2">Nombre del invocador 2</label>
+                            <input type="text" id="nombreInvocador2" placeholder="Nombre de invocador" autocomplete="off" spellcheck="false">
+                        </div>
+                        <div class="campo campo--tag">
+                            <label class="visualmente-oculto" for="tag2">TAG del invocador 2</label>
+                            <span class="campo__prefix" aria-hidden="true">#</span>
+                            <input type="text" id="tag2" placeholder="TAG" autocomplete="off" spellcheck="false" maxlength="5">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="jugador-input">
+                    <span class="jugador-input__numero" aria-hidden="true">3</span>
+                    <div class="jugador-input__campos">
+                        <div class="campo">
+                            <label class="visualmente-oculto" for="nombreInvocador3">Nombre del invocador 3</label>
+                            <input type="text" id="nombreInvocador3" placeholder="Nombre de invocador" autocomplete="off" spellcheck="false">
+                        </div>
+                        <div class="campo campo--tag">
+                            <label class="visualmente-oculto" for="tag3">TAG del invocador 3</label>
+                            <span class="campo__prefix" aria-hidden="true">#</span>
+                            <input type="text" id="tag3" placeholder="TAG" autocomplete="off" spellcheck="false" maxlength="5">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="jugador-input">
+                    <span class="jugador-input__numero" aria-hidden="true">4</span>
+                    <div class="jugador-input__campos">
+                        <div class="campo">
+                            <label class="visualmente-oculto" for="nombreInvocador4">Nombre del invocador 4</label>
+                            <input type="text" id="nombreInvocador4" placeholder="Nombre de invocador" autocomplete="off" spellcheck="false">
+                        </div>
+                        <div class="campo campo--tag">
+                            <label class="visualmente-oculto" for="tag4">TAG del invocador 4</label>
+                            <span class="campo__prefix" aria-hidden="true">#</span>
+                            <input type="text" id="tag4" placeholder="TAG" autocomplete="off" spellcheck="false" maxlength="5">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="jugador-input">
+                    <span class="jugador-input__numero" aria-hidden="true">5</span>
+                    <div class="jugador-input__campos">
+                        <div class="campo">
+                            <label class="visualmente-oculto" for="nombreInvocador5">Nombre del invocador 5</label>
+                            <input type="text" id="nombreInvocador5" placeholder="Nombre de invocador" autocomplete="off" spellcheck="false">
+                        </div>
+                        <div class="campo campo--tag">
+                            <label class="visualmente-oculto" for="tag5">TAG del invocador 5</label>
+                            <span class="campo__prefix" aria-hidden="true">#</span>
+                            <input type="text" id="tag5" placeholder="TAG" autocomplete="off" spellcheck="false" maxlength="5">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="buscador__acciones">
+                <p class="buscador__nota">
+                    El TAG es lo que va después del #. Ejemplo: <span>Hide on bush + LAN</span>.
+                    El perfil y el rango se muestran para el primer jugador de la lista.
+                </p>
+                <button id="botonBuscar" type="button">Buscar</button>
+            </div>
+        </section>
+
+        <div class="results-grid">
+            <section id="perfil" class="panel panel--profile" aria-labelledby="perfilTitulo">
+                <div class="section-head section-head--compact">
+                    <div class="section-head__text">
+                        <p class="section-kicker"><span aria-hidden="true">02</span>Ficha</p>
+                        <h2 id="perfilTitulo">Perfil del invocador</h2>
+                    </div>
+                    <span class="tag-pill">Primer invocador</span>
+                </div>
+
+                <div class="profile__card">
+                    <div class="profile__sigil" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" focusable="false">
+                            <path d="M12 2 22 12 12 22 2 12Z" fill="none" stroke="currentColor" stroke-width="1.2"/>
+                            <path d="M12 6.5 17.5 12 12 17.5 6.5 12Z" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.6"/>
+                            <circle cx="12" cy="12" r="2.2" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <div class="profile__identity">
+                        <h3 id="nameInvocator">Sin invocador</h3>
+                        <h3 id="levelProfile">Nivel —</h3>
+                    </div>
+                </div>
+
+                <p class="panel__note">
+                    La ficha y el rango corresponden al primer invocador de la búsqueda.
+                </p>
+            </section>
+
+            <section id="clasificatorias" class="panel" aria-labelledby="clasificatoriasTitulo">
+                <div class="section-head section-head--compact">
+                    <div class="section-head__text">
+                        <p class="section-kicker"><span aria-hidden="true">03</span>Rango</p>
+                        <h2 id="clasificatoriasTitulo">Clasificatorias</h2>
+                    </div>
+                    <span class="tag-pill tag-pill--muted">Temporada actual</span>
+                </div>
+
+                <div class="ranked-grid">
+                    <article class="ranked-card" id="rankedSoloDuo" aria-labelledby="rankedSoloDuoTitulo">
+                        <header class="ranked-card__header">
+                            <p class="ranked-card__queue">Cola individual</p>
+                            <h3 id="rankedSoloDuoTitulo">Solo / Dúo</h3>
+                        </header>
+
+                        <figure class="ranked-card__emblem">
+                            <span class="ranked-card__emblem-crop">
+                                <!-- Reemplaza el enlace del src por la imagen de rango que quieras mostrar. -->
+                                <img id="soloTierIcon" src="https://opgg-static.akamaized.net/images/medals/default.png" alt="Emblema de rango de Solo/Dúo" width="96" height="96" loading="lazy" decoding="async">
+                            </span>
+                        </figure>
+
+                        <dl class="ranked-card__stats">
+                            <div class="ranked-card__stat">
+                                <dt>Tier</dt>
+                                <dd id="soloTier">—</dd>
+                            </div>
+                            <div class="ranked-card__stat">
+                                <dt>Rango</dt>
+                                <dd id="soloRank">—</dd>
+                            </div>
+                            <div class="ranked-card__stat">
+                                <dt>LP</dt>
+                                <dd id="soloLp">—</dd>
+                            </div>
+                            <div class="ranked-card__stat">
+                                <dt>Victorias</dt>
+                                <dd id="soloWins">—</dd>
+                            </div>
+                            <div class="ranked-card__stat">
+                                <dt>Derrotas</dt>
+                                <dd id="soloLosses">—</dd>
+                            </div>
+                        </dl>
+                    </article>
+
+                    <article class="ranked-card" id="rankedFlex" aria-labelledby="rankedFlexTitulo">
+                        <header class="ranked-card__header">
+                            <p class="ranked-card__queue">Cola flexible</p>
+                            <h3 id="rankedFlexTitulo">Flex</h3>
+                        </header>
+
+                        <figure class="ranked-card__emblem">
+                            <span class="ranked-card__emblem-crop">
+                                <!-- Reemplaza el enlace del src por la imagen de rango que quieras mostrar. -->
+                                <img id="flexTierIcon" src="https://opgg-static.akamaized.net/images/medals/default.png" alt="Emblema de rango de Flexible" width="96" height="96" loading="lazy" decoding="async">
+                            </span>
+                        </figure>
+
+                        <dl class="ranked-card__stats">
+                            <div class="ranked-card__stat">
+                                <dt>Tier</dt>
+                                <dd id="flexTier">—</dd>
+                            </div>
+                            <div class="ranked-card__stat">
+                                <dt>Rango</dt>
+                                <dd id="flexRank">—</dd>
+                            </div>
+                            <div class="ranked-card__stat">
+                                <dt>LP</dt>
+                                <dd id="flexLp">—</dd>
+                            </div>
+                            <div class="ranked-card__stat">
+                                <dt>Victorias</dt>
+                                <dd id="flexWins">—</dd>
+                            </div>
+                            <div class="ranked-card__stat">
+                                <dt>Derrotas</dt>
+                                <dd id="flexLosses">—</dd>
+                            </div>
+                        </dl>
+                    </article>
+                </div>
+            </section>
+        </div>
+        <section id="comparativa" class="panel" aria-labelledby="comparativaTitulo">
+            <div class="section-head">
+                <div class="section-head__text">
+                    <p class="section-kicker"><span aria-hidden="true">04</span>Lectura cruzada</p>
+                    <h2 id="comparativaTitulo">Comparativa</h2>
+                    <p class="comparativa__ayuda">
+                        Promedio de las últimas 20 partidas de cada invocador.
+                        Cada fila mide lo mismo para todos: sin atajos.
+                    </p>
+                </div>
+            </div>
+
+            <div class="tabla-contenedor" role="region" aria-label="Tabla comparativa de estadísticas" tabindex="0">
+                <table class="tabla-comparativa">
+                    <caption class="visualmente-oculto">
+                        Comparación de estadísticas entre los invocadores ingresados
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Estadística</th>
+                            <th scope="col" id="comparativaJugador1">Invocador 1</th>
+                            <th scope="col" id="comparativaJugador2">Invocador 2</th>
+                            <th scope="col" id="comparativaJugador3">Invocador 3</th>
+                            <th scope="col" id="comparativaJugador4">Invocador 4</th>
+                            <th scope="col" id="comparativaJugador5">Invocador 5</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Rango (Solo/Dúo)</th>
+                            <td data-jugador="1" data-estadistica="rango">—</td>
+                            <td data-jugador="2" data-estadistica="rango">—</td>
+                            <td data-jugador="3" data-estadistica="rango">—</td>
+                            <td data-jugador="4" data-estadistica="rango">—</td>
+                            <td data-jugador="5" data-estadistica="rango">—</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Winrate</th>
+                            <td data-jugador="1" data-estadistica="winrate">—</td>
+                            <td data-jugador="2" data-estadistica="winrate">—</td>
+                            <td data-jugador="3" data-estadistica="winrate">—</td>
+                            <td data-jugador="4" data-estadistica="winrate">—</td>
+                            <td data-jugador="5" data-estadistica="winrate">—</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">KDA</th>
+                            <td data-jugador="1" data-estadistica="kda">—</td>
+                            <td data-jugador="2" data-estadistica="kda">—</td>
+                            <td data-jugador="3" data-estadistica="kda">—</td>
+                            <td data-jugador="4" data-estadistica="kda">—</td>
+                            <td data-jugador="5" data-estadistica="kda">—</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">CS/min</th>
+                            <td data-jugador="1" data-estadistica="csPorMinuto">—</td>
+                            <td data-jugador="2" data-estadistica="csPorMinuto">—</td>
+                            <td data-jugador="3" data-estadistica="csPorMinuto">—</td>
+                            <td data-jugador="4" data-estadistica="csPorMinuto">—</td>
+                            <td data-jugador="5" data-estadistica="csPorMinuto">—</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Oro/min</th>
+                            <td data-jugador="1" data-estadistica="oroPorMinuto">—</td>
+                            <td data-jugador="2" data-estadistica="oroPorMinuto">—</td>
+                            <td data-jugador="3" data-estadistica="oroPorMinuto">—</td>
+                            <td data-jugador="4" data-estadistica="oroPorMinuto">—</td>
+                            <td data-jugador="5" data-estadistica="oroPorMinuto">—</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Daño/min</th>
+                            <td data-jugador="1" data-estadistica="dañoPorMinuto">—</td>
+                            <td data-jugador="2" data-estadistica="dañoPorMinuto">—</td>
+                            <td data-jugador="3" data-estadistica="dañoPorMinuto">—</td>
+                            <td data-jugador="4" data-estadistica="dañoPorMinuto">—</td>
+                            <td data-jugador="5" data-estadistica="dañoPorMinuto">—</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Visión/min</th>
+                            <td data-jugador="1" data-estadistica="visionPorMinuto">—</td>
+                            <td data-jugador="2" data-estadistica="visionPorMinuto">—</td>
+                            <td data-jugador="3" data-estadistica="visionPorMinuto">—</td>
+                            <td data-jugador="4" data-estadistica="visionPorMinuto">—</td>
+                            <td data-jugador="5" data-estadistica="visionPorMinuto">—</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Score</th>
+                            <td data-jugador="1" data-estadistica="score">—</td>
+                            <td data-jugador="2" data-estadistica="score">—</td>
+                            <td data-jugador="3" data-estadistica="score">—</td>
+                            <td data-jugador="4" data-estadistica="score">—</td>
+                            <td data-jugador="5" data-estadistica="score">—</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p id="resumenComparativa" class="comparativa__resumen">
+                <strong>Cómo leerlo:</strong> cada columna es un invocador y cada fila
+                una métrica. El score combina winrate, KDA, economía, daño y visión
+                en un solo número para desempatar la conversación.
+            </p>
+        </section>
+
+        <section id="partidasRecientes" class="panel" aria-labelledby="partidasRecientesTitulo">
+            <div class="partidas-header">
+                <div class="section-head__text">
+                    <p class="section-kicker"><span aria-hidden="true">05</span>Historial</p>
+                    <h2 id="partidasRecientesTitulo">Partidas recientes</h2>
+                    <p class="partidas__ayuda">
+                        El historial del primer invocador, con los 10 participantes
+                        de cada partida.
+                    </p>
+                </div>
+            </div>
+
+            <p id="estadoPartidas" class="partidas-estado">
+                <span class="partidas-estado__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false">
+                        <path d="M4 7h16M4 12h16M4 17h10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                    </svg>
+                </span>
+                Todavía no hay partidas. Busca un invocador y su historial aparecerá aquí.
+            </p>
+
+            <ul id="listaPartidas" class="partidas-lista"></ul>
+        </section>
+
+        <noscript>
+            <p class="noscript">
+                Este analizador necesita JavaScript para consultar la Riot API.
+                Actívalo en tu navegador para comparar invocadores.
+            </p>
+        </noscript>
+    </main>
+
+    <footer class="site-footer">
+        <div class="site-footer__inner">
+            <div class="site-footer__brand">
+                <p class="site-footer__name">LOL Analyzer</p>
+                <p class="site-footer__tagline">
+                    Números claros para conversaciones difíciles.
+                </p>
+            </div>
+            <nav class="site-footer__nav" aria-label="Enlaces del pie de página">
+                <a href="#buscador">Comparar</a>
+                <a href="#comparativa">Rendimiento</a>
+                <a href="#partidasRecientes">Historial</a>
+            </nav>
+            <p class="site-footer__legal">
+                © 2026 LOL Analyzer. Datos oficiales de Riot Games.
+                Este proyecto no está afiliado ni respaldado por Riot Games.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
