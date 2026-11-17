@@ -454,7 +454,6 @@ function llenarTabla(perfiles) {
   for (let i = 0; i < perfiles.length; i++) {
     todasLasStats[i].score = scores[i]; // agrego el score al objeto de stats del jugador
   }
-  console.log(todasLasStats);
 
   // escribo en la tabla jugador x jugador
   for (let i = 0; i < perfiles.length; i++) {
