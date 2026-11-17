@@ -3,7 +3,7 @@
 // Cloudflare Worker del proyecto (carpeta `holy-mouse-2e50`). El Worker agrega
 // el header `X-Riot-Token` a cada peticion por nosotros.
 // Cambia esta URL por la que te devuelve `wrangler deploy`.
-const API_BASE = "https://lol-analyzer-api.TU-SUBDOMINIO.workers.dev"; // proxy propio en Cloudflare
+const API_BASE = "https://lol-analyzer-api.demiandenegri.workers.dev"; // proxy propio en Cloudflare
 
 // links base: el Worker traduce la region al host real de Riot
 const RIOT_AMERICAS = API_BASE + "/americas"; // servidor de cuentas y partidas
