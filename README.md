@@ -1,7 +1,7 @@
 # LOL Analyzer
 
 Un analizador de perfiles de **League of Legends** hecho con **HTML, CSS y JavaScript vanilla**. Su objetivo es **practicar JavaScript** consumiendo una API real (Riot Games API), manipulando el DOM y organizando datos.
-
+https://demian-denegri.github.io/lolanalyzer2.0/
 ## ¿De qué se trata?
 
 Este proyecto permite buscar un invocador por `Nombre + Tag` (Riot ID), obtener su información de perfil, estadísticas en clasificatorias (Solo/Dúo y Flexible) y su historial reciente de partidas, mostrando los datos de una forma más clara.
