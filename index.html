@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#050b12">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='10' fill='%23050b12'/%3E%3Cpath d='M24 6 40 15v18L24 42 8 33V15Z' fill='none' stroke='%23c8aa6e' stroke-width='2'/%3E%3Cpath d='M18 32 24 17l6 15M20.5 27h7' fill='none' stroke='%23f0e6d2' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E">
+    <meta name="theme-color" content="#010a13">
+    <meta name="color-scheme" content="dark">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='4' fill='%23010a13'/%3E%3Cpath d='M24 6 40 15v18L24 42 8 33V15Z' fill='none' stroke='%23c8aa6e' stroke-width='2'/%3E%3Cpath d='M18 32 24 17l6 15M20.5 27h7' fill='none' stroke='%23f0e6d2' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E">
     <meta name="description" content="LOL Analyzer: comparador de estadísticas de League of Legends. Analiza winrate, KDA, economía, daño y visión de hasta cinco invocadores.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +20,7 @@
 
     <header class="site-header">
         <div class="site-header__inner">
-            <a class="brand" href="#" aria-label="LOL Analyzer, ir al inicio">
+            <a class="brand" href="#inicio" aria-label="LOL Analyzer, ir al inicio">
                 <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
                     <defs>
                         <linearGradient id="brandGold" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse">
@@ -44,87 +45,94 @@
                 <a href="#comparativa">Rendimiento</a>
                 <a href="#partidasRecientes">Historial</a>
             </nav>
-
-            <p class="header-source">
-                <span class="header-source__dot" aria-hidden="true"></span>
-                Datos de Riot API
-            </p>
         </div>
     </header>
 
     <main id="contenido">
-        <section class="hero" aria-labelledby="heroTitulo">
-            <div class="hero__copy">
-                <p class="eyebrow"><span aria-hidden="true"></span>League of Legends · Análisis competitivo</p>
-                <h1 id="heroTitulo">Tu squad. Sus números.<br><span class="hero__accent">La diferencia.</span></h1>
-                <p class="hero__lede">
-                    Compara el rendimiento de hasta cinco invocadores con datos reales de sus
-                    últimas 10 partidas. Winrate, KDA, economía y visión en una sola lectura.
-                </p>
-                <div class="hero__actions">
-                    <a class="button button--gold" href="#buscador">
-                        Comparar invocadores
-                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    </a>
-                    <a class="button button--ghost" href="#comparativa">Ver métricas</a>
-                </div>
-                <ul class="hero__chips" aria-label="Métricas disponibles">
-                    <li>Winrate</li>
-                    <li>KDA</li>
-                    <li>CS/min</li>
-                    <li>Oro/min</li>
-                    <li>Daño/min</li>
-                    <li>Visión/min</li>
-                </ul>
+        <section id="inicio" class="hero" aria-labelledby="heroTitulo">
+            <div class="hero__art" aria-hidden="true">
+                <img src="assets/hero-viego.jpg" alt="" width="1215" height="717" fetchpriority="high" decoding="async">
+                <span class="hero__veil"></span>
+                <span class="hero__lattice"></span>
             </div>
 
-            <div class="hero__visual" aria-hidden="true">
-                <div class="hexgate">
-                    <svg class="hexgate__crest" viewBox="0 0 320 320" focusable="false">
-                        <defs>
-                            <linearGradient id="heroGold" x1="48" y1="28" x2="276" y2="296" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#f0e6d2"/>
-                                <stop offset="0.42" stop-color="#c8aa6e"/>
-                                <stop offset="1" stop-color="#785a28"/>
-                            </linearGradient>
-                            <linearGradient id="heroTeal" x1="110" y1="96" x2="214" y2="228" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#7af5e9"/>
-                                <stop offset="1" stop-color="#0a8f8a"/>
-                            </linearGradient>
-                            <radialGradient id="heroGlow" cx="50%" cy="50%" r="50%">
-                                <stop stop-color="#0ac8b9" stop-opacity="0.16"/>
-                                <stop offset="1" stop-color="#0ac8b9" stop-opacity="0"/>
-                            </radialGradient>
-                        </defs>
-                        <circle cx="160" cy="160" r="152" fill="url(#heroGlow)"/>
-                        <circle cx="160" cy="160" r="132" fill="none" stroke="rgba(200,170,110,0.22)" stroke-dasharray="3 12"/>
-                        <path d="M160 22 282 92v136l-122 70L38 228V92Z" fill="rgba(5,13,20,0.45)" stroke="url(#heroGold)" stroke-width="1.6"/>
-                        <path d="M160 42 264 102v116l-104 60-104-60V102Z" fill="none" stroke="rgba(200,170,110,0.3)" stroke-width="1"/>
-                        <path d="M160 66 246 116v88l-86 50-86-50v-88Z" fill="rgba(10,200,185,0.03)" stroke="rgba(10,200,185,0.22)" stroke-width="1"/>
-                        <path d="M160 96 210 160l-50 64-50-64Z" fill="none" stroke="url(#heroTeal)" stroke-width="1.4"/>
-                        <path d="M160 118 194 160l-34 42-34-42Z" fill="rgba(200,170,110,0.08)" stroke="rgba(200,170,110,0.35)" stroke-width="1"/>
-                        <path d="M160 130v60M143 160h34" stroke="url(#heroGold)" stroke-width="1.6" stroke-linecap="round" opacity="0.65"/>
-                        <circle cx="160" cy="160" r="7" fill="url(#heroGold)"/>
-                        <circle cx="160" cy="160" r="16" fill="none" stroke="rgba(240,230,210,0.35)" stroke-width="1"/>
-                        <path d="M160 22l5 5-5 5-5-5ZM160 288l5 5-5 5-5-5ZM38 228l5 5-5 5-5-5ZM282 82l5 5-5 5-5-5Z" fill="#c8aa6e" opacity="0.8"/>
-                    </svg>
-                    <span class="hexgate__metric hexgate__metric--top"><strong>5</strong><span>invocadores</span></span>
-                    <span class="hexgate__metric hexgate__metric--left"><strong>10</strong><span>partidas</span></span>
-                    <span class="hexgate__metric hexgate__metric--bottom"><strong>8</strong><span>indicadores</span></span>
+            <div class="hero__inner">
+                <div class="hero__copy">
+                    <p class="eyebrow">
+                        <span class="eyebrow__rule" aria-hidden="true"></span>
+                        League of Legends · Análisis competitivo
+                    </p>
+                    <h1 id="heroTitulo">
+                        Tu squad.<br>
+                        Sus números.<br>
+                        <span class="hero__accent">La diferencia.</span>
+                    </h1>
+                    <p class="hero__lede">
+                        Compara el rendimiento de hasta cinco invocadores con datos reales de sus
+                        últimas 10 partidas. Winrate, KDA, economía y visión en una sola lectura.
+                    </p>
+                    <div class="hero__actions">
+                        <a class="button button--gold" href="#buscador">
+                            Comparar invocadores
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                        <a class="button button--ghost" href="#comparativa">Ver métricas</a>
+                    </div>
+                    <ul class="hero__chips" aria-label="Métricas disponibles">
+                        <li><abbr title="Porcentaje de victorias en las últimas 10 partidas">Winrate</abbr></li>
+                        <li><abbr title="Kills más asistencias, dividido por muertes">KDA</abbr></li>
+                        <li><abbr title="Súbditos eliminados por minuto">CS/min</abbr></li>
+                        <li><abbr title="Oro conseguido por minuto">Oro/min</abbr></li>
+                        <li><abbr title="Daño a campeones por minuto">Daño/min</abbr></li>
+                        <li><abbr title="Puntuación de visión por minuto">Visión/min</abbr></li>
+                    </ul>
                 </div>
-                <p class="hero__visual-caption">Una lectura. Cinco perspectivas.</p>
+
+                <div class="hero__rail" aria-hidden="true">
+                    <p class="hero__rail-label">
+                        <span class="live-dot"></span>
+                        Servicio en línea
+                    </p>
+                    <dl class="hero__rail-stats">
+                        <div>
+                            <dt>Región</dt>
+                            <dd>LAN</dd>
+                        </div>
+                        <div>
+                            <dt>Parche</dt>
+                            <dd>14.20</dd>
+                        </div>
+                        <div>
+                            <dt>Fuente</dt>
+                            <dd>Riot API</dd>
+                        </div>
+                    </dl>
+                    <p class="hero__credit">
+                        Viego · El Rey Arruinado
+                        <span>Arte oficial de League of Legends</span>
+                    </p>
+                </div>
             </div>
 
             <ul class="hero__facts">
-                <li><span class="hero__fact-value">01—05</span><span>invocadores por análisis</span></li>
-                <li><span class="hero__fact-value">10</span><span>partidas por jugador</span></li>
-                <li><span class="hero__fact-value">08</span><span>indicadores frente a frente</span></li>
+                <li>
+                    <span class="hero__fact-value">01—05</span>
+                    <span class="hero__fact-label">invocadores por análisis</span>
+                </li>
+                <li>
+                    <span class="hero__fact-value">10</span>
+                    <span class="hero__fact-label">partidas por jugador</span>
+                </li>
+                <li>
+                    <span class="hero__fact-value">08</span>
+                    <span class="hero__fact-label">indicadores frente a frente</span>
+                </li>
             </ul>
         </section>
-        <section id="buscador" class="panel" aria-labelledby="buscadorTitulo">
+
+        <section id="buscador" class="panel panel--console" aria-labelledby="buscadorTitulo">
             <div class="section-head">
                 <div class="section-head__text">
-                    <p class="section-kicker"><span aria-hidden="true">01</span>Selección</p>
                     <h2 id="buscadorTitulo">Arma tu comparación</h2>
                     <p class="buscador__ayuda">
                         Completa entre 1 y 5 Riot IDs. Los espacios que dejes vacíos
@@ -132,8 +140,11 @@
                     </p>
                 </div>
                 <p class="format-hint">
-                    <span class="format-hint__label">Formato</span>
-                    <span class="format-hint__value">Nombre + TAG</span>
+                    <span class="format-hint__icon" aria-hidden="true"><i class="fa-solid fa-hashtag"></i></span>
+                    <span class="format-hint__text">
+                        <span class="format-hint__label">Formato</span>
+                        <span class="format-hint__value">Nombre + TAG</span>
+                    </span>
                 </p>
             </div>
 
@@ -227,7 +238,6 @@
             <section id="perfil" class="panel panel--profile" aria-labelledby="perfilTitulo">
                 <div class="section-head section-head--compact">
                     <div class="section-head__text">
-                        <p class="section-kicker"><span aria-hidden="true">02</span>Ficha</p>
                         <h2 id="perfilTitulo">Perfil del invocador</h2>
                     </div>
                     <span class="tag-pill">Primer invocador</span>
@@ -242,6 +252,7 @@
                         </svg>
                     </div>
                     <div class="profile__identity">
+                        <p class="profile__label">Invocador verificado</p>
                         <h3 id="nameInvocator">Sin invocador</h3>
                         <h3 id="levelProfile">Nivel —</h3>
                     </div>
@@ -255,7 +266,6 @@
             <section id="clasificatorias" class="panel" aria-labelledby="clasificatoriasTitulo">
                 <div class="section-head section-head--compact">
                     <div class="section-head__text">
-                        <p class="section-kicker"><span aria-hidden="true">03</span>Rango</p>
                         <h2 id="clasificatoriasTitulo">Clasificatorias</h2>
                     </div>
                     <span class="tag-pill tag-pill--muted">Temporada actual</span>
@@ -338,16 +348,25 @@
                 </div>
             </section>
         </div>
+
         <section id="comparativa" class="panel" aria-labelledby="comparativaTitulo">
             <div class="section-head">
                 <div class="section-head__text">
-                    <p class="section-kicker"><span aria-hidden="true">04</span>Lectura cruzada</p>
                     <h2 id="comparativaTitulo">Comparativa</h2>
                     <p class="comparativa__ayuda">
                         Promedio de las últimas 10 partidas de cada invocador.
                         Cada fila mide lo mismo para todos: sin atajos.
                     </p>
                 </div>
+
+                <ul class="score-weights" aria-label="Composición del score final">
+                    <li><span>40%</span>Winrate</li>
+                    <li><span>30%</span>KDA</li>
+                    <li><span>10%</span>CS</li>
+                    <li><span>10%</span>Oro</li>
+                    <li><span>5%</span>Daño</li>
+                    <li><span>5%</span>Visión</li>
+                </ul>
             </div>
 
             <div class="tabla-contenedor" role="region" aria-label="Tabla comparativa de estadísticas" tabindex="0">
@@ -444,7 +463,6 @@
         <section id="partidasRecientes" class="panel" aria-labelledby="partidasRecientesTitulo">
             <div class="partidas-header">
                 <div class="section-head__text">
-                    <p class="section-kicker"><span aria-hidden="true">05</span>Historial</p>
                     <h2 id="partidasRecientesTitulo">Partidas recientes</h2>
                     <p class="partidas__ayuda">
                         El historial del primer invocador, con los 10 participantes
@@ -474,17 +492,20 @@
     </main>
 
     <footer class="site-footer">
+        <p class="site-footer__watermark" aria-hidden="true">LOL Analyzer</p>
         <div class="site-footer__inner">
-            <div>
+            <div class="site-footer__brand">
                 <p class="site-footer__name">LOL Analyzer</p>
                 <p class="site-footer__tagline">
                     Números claros para conversaciones difíciles.
                 </p>
             </div>
+
             <nav class="site-footer__nav" aria-label="Enlaces del pie de página">
                 <a href="#buscador">Comparar</a>
                 <a href="#comparativa">Rendimiento</a>
                 <a href="#partidasRecientes">Historial</a>
+                <a href="#inicio">Volver arriba</a>
             </nav>
 
             <div class="site-footer__dev">
@@ -505,6 +526,7 @@
                     </li>
                 </ul>
             </div>
+
             <p class="site-footer__legal">
                 © 2026 LOL Analyzer. Datos oficiales de Riot Games.
                 Este proyecto no está afiliado ni respaldado por Riot Games.
