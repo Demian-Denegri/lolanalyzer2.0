@@ -419,8 +419,7 @@ async function Profile(account) {
   // renderizo el perfil del invocador en el html
   const soloDuoTier = account.ranked[0].tier;
   const flexTier = account.ranked[1].tier;
-  document.getElementById("nameInvocator").textContent =
-    "Nombre: " + account.name; // muestrop el nombre del invocador
+  document.getElementById("nameInvocator").textContent = account.name; // muestrop el nombre del invocador
   document.getElementById("levelProfile").textContent =
     "Nivel: " + account.level; //muestro el lvl
   document.getElementById("soloTier").textContent = soloDuoTier; // muestro el tier y division de soloQ

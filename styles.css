@@ -509,8 +509,10 @@ main > .hero {
 }
 
 /* Botones */
+/* Botones */
 .button {
     position: relative;
+    overflow: hidden;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -540,23 +542,51 @@ main > .hero {
     transform: translateX(3px);
 }
 
-.button--gold {
-    background-image: linear-gradient(180deg, #fdf6e6 0%, #e6cf9a 14%, #c8aa6e 52%, #a8874a 100%);
-    border-color: rgba(240, 230, 210, 0.7);
-    color: #08131c;
-    box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.6),
-        inset 0 -2px 0 rgba(70, 55, 20, 0.35),
-        0 16px 34px -22px rgba(200, 170, 110, 0.9);
-}
-
-.button--gold:hover {
-    filter: brightness(1.06);
-    transform: translateY(-1px);
+/* Variante dorada compartida con #botonBuscar */
+.button--gold,
+#botonBuscar {
+    border: 1px solid rgba(240, 230, 210, 0.8);
+    background-image: linear-gradient(180deg, #fdf6e6 0%, #e6cf9a 13%, #c8aa6e 50%, #a8874a 100%);
+    color: #07131c;
     box-shadow:
         inset 0 1px 0 rgba(255, 255, 255, 0.7),
-        inset 0 -2px 0 rgba(70, 55, 20, 0.35),
-        0 22px 40px -22px rgba(200, 170, 110, 1);
+        inset 0 -2px 0 rgba(70, 55, 20, 0.4),
+        0 18px 38px -22px rgba(200, 170, 110, 0.9);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+/* Destello al pasar el cursor */
+.button--gold::after,
+#botonBuscar::after {
+    content: "";
+    position: absolute;
+    inset: -60% -40%;
+    background: linear-gradient(105deg, transparent 42%, rgba(255, 255, 255, 0.55) 50%, transparent 58%);
+    transform: translateX(-70%) rotate(6deg);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.7s ease, opacity 0.3s ease;
+}
+
+.button--gold:hover,
+#botonBuscar:hover:not(:disabled) {
+    filter: brightness(1.05);
+    transform: translateY(-1px);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.8),
+        inset 0 -2px 0 rgba(70, 55, 20, 0.4),
+        0 26px 46px -22px rgba(200, 170, 110, 1);
+}
+
+.button--gold:hover::after,
+#botonBuscar:hover:not(:disabled)::after {
+    transform: translateX(70%) rotate(6deg);
+    opacity: 1;
+}
+
+.button--gold:active,
+#botonBuscar:active:not(:disabled) {
+    transform: translateY(0);
 }
 
 .button--ghost {
@@ -573,7 +603,6 @@ main > .hero {
     color: var(--gold-1);
     transform: translateY(-1px);
 }
-
 .hero__chips {
     display: flex;
     flex-wrap: wrap;
