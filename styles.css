@@ -692,11 +692,6 @@ main {
     letter-spacing: 0.01em;
 }
 
-.panel h2 + p,
-.partidas-header h2 + p {
-    margin-top: 0;
-}
-
 .section-head p:last-child,
 .partidas-header .section-head__text > p:last-child {
     margin-bottom: 0;
@@ -1267,11 +1262,6 @@ main {
     scrollbar-width: thin;
 }
 
-.tabla-contenedor:focus-visible {
-    outline: 2px solid var(--gold);
-    outline-offset: 3px;
-}
-
 .tabla-contenedor::-webkit-scrollbar {
     height: 8px;
 }
@@ -1767,12 +1757,14 @@ main {
     border-radius: 10px;
     background: rgba(200, 170, 110, 0.05);
     color: var(--gold);
+    text-decoration: none;
     transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.social-link svg {
-    width: 18px;
-    height: 18px;
+.social-link i {
+    font-size: 19px;
+    line-height: 1;
+    transition: transform 0.2s ease;
 }
 
 .social-link:hover {
@@ -1783,9 +1775,8 @@ main {
     box-shadow: 0 10px 22px -14px rgba(200, 170, 110, 0.8);
 }
 
-.social-link:focus-visible {
-    outline: 2px solid var(--gold);
-    outline-offset: 3px;
+.social-link:hover i {
+    transform: scale(1.08);
 }
 
 .site-footer__legal {
