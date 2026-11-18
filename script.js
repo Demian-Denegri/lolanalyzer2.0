@@ -122,7 +122,7 @@ async function getRanckedStats(puuid) {
 async function getMatchHistory(puuid) {
   // obtengo los id del historial de partidas del user LOL
   const response = await fetch(
-    URL_PARTIDAS_POR_PUUID + puuid + "/ids?start=0&count=20",
+    URL_PARTIDAS_POR_PUUID + puuid + "/ids?start=0&count=10", // 10 es la cantidad de partidas que quiero obtener del historial de partidas del user LOL
   );
   const matchHistory = await response.json(); // esta linea es para esperarr a que la respuesta se convierta en json
   return matchHistory;

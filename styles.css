@@ -1709,10 +1709,89 @@ main {
     color: var(--gold);
 }
 
+.site-footer__dev {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line-soft);
+}
+
+.site-footer__dev-text {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px 10px;
+    margin: 0;
+}
+
+.site-footer__dev-label {
+    color: var(--faint);
+    font-family: var(--font-ui);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.site-footer__dev-name {
+    background: linear-gradient(100deg, var(--gold-bright) 0%, var(--gold) 60%, #9c7c3c 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.site-footer__socials {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.social-link {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(200, 170, 110, 0.28);
+    border-radius: 10px;
+    background: rgba(200, 170, 110, 0.05);
+    color: var(--gold);
+    transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.social-link svg {
+    width: 18px;
+    height: 18px;
+}
+
+.social-link:hover {
+    border-color: rgba(200, 170, 110, 0.6);
+    background: rgba(200, 170, 110, 0.14);
+    color: var(--gold-bright);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px -14px rgba(200, 170, 110, 0.8);
+}
+
+.social-link:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+}
+
 .site-footer__legal {
     grid-column: 1 / -1;
     margin: 0;
-    padding-top: 20px;
+    padding-top: 16px;
     border-top: 1px solid var(--line-soft);
     color: #6d818f;
     font-size: 0.72rem;
@@ -1924,6 +2003,11 @@ main {
 
     .site-footer__nav {
         justify-content: flex-start;
+    }
+
+    .site-footer__dev {
+        flex-direction: column;
+        align-items: flex-start;
     }
 }
 
