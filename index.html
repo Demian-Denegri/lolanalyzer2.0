@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="styles.css">
     <title>LOL Analyzer — Comparador de rendimiento</title>
     <script src="script.js" defer></script>
@@ -58,7 +59,7 @@
                 <h1 id="heroTitulo">Tu squad. Sus números.<br><span class="hero__accent">La diferencia.</span></h1>
                 <p class="hero__lede">
                     Compara el rendimiento de hasta cinco invocadores con datos reales de sus
-                    últimas 20 partidas. Winrate, KDA, economía y visión en una sola lectura.
+                    últimas 10 partidas. Winrate, KDA, economía y visión en una sola lectura.
                 </p>
                 <div class="hero__actions">
                     <a class="button button--gold" href="#buscador">
@@ -108,7 +109,7 @@
                         <path d="M160 22l5 5-5 5-5-5ZM160 288l5 5-5 5-5-5ZM38 228l5 5-5 5-5-5ZM282 82l5 5-5 5-5-5Z" fill="#c8aa6e" opacity="0.8"/>
                     </svg>
                     <span class="hexgate__metric hexgate__metric--top"><strong>5</strong><span>invocadores</span></span>
-                    <span class="hexgate__metric hexgate__metric--left"><strong>20</strong><span>partidas</span></span>
+                    <span class="hexgate__metric hexgate__metric--left"><strong>10</strong><span>partidas</span></span>
                     <span class="hexgate__metric hexgate__metric--bottom"><strong>8</strong><span>indicadores</span></span>
                 </div>
                 <p class="hero__visual-caption">Una lectura. Cinco perspectivas.</p>
@@ -116,7 +117,7 @@
 
             <ul class="hero__facts">
                 <li><span class="hero__fact-value">01—05</span><span>invocadores por análisis</span></li>
-                <li><span class="hero__fact-value">20</span><span>partidas por jugador</span></li>
+                <li><span class="hero__fact-value">10</span><span>partidas por jugador</span></li>
                 <li><span class="hero__fact-value">08</span><span>indicadores frente a frente</span></li>
             </ul>
         </section>
@@ -343,7 +344,7 @@
                     <p class="section-kicker"><span aria-hidden="true">04</span>Lectura cruzada</p>
                     <h2 id="comparativaTitulo">Comparativa</h2>
                     <p class="comparativa__ayuda">
-                        Promedio de las últimas 20 partidas de cada invocador.
+                        Promedio de las últimas 10 partidas de cada invocador.
                         Cada fila mide lo mismo para todos: sin atajos.
                     </p>
                 </div>
@@ -433,7 +434,7 @@
                 </table>
             </div>
 
-            <p id="resumenComparativa" class="comparativa__resumen">
+            <p class="comparativa__resumen">
                 <strong>Cómo leerlo:</strong> cada columna es un invocador y cada fila
                 una métrica. El score combina winrate, KDA, economía, daño y visión
                 en un solo número para desempatar la conversación.
@@ -452,7 +453,7 @@
                 </div>
             </div>
 
-            <p id="estadoPartidas" class="partidas-estado">
+            <p class="partidas-estado">
                 <span class="partidas-estado__icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" focusable="false">
                         <path d="M4 7h16M4 12h16M4 17h10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
@@ -474,7 +475,7 @@
 
     <footer class="site-footer">
         <div class="site-footer__inner">
-            <div class="site-footer__brand">
+            <div>
                 <p class="site-footer__name">LOL Analyzer</p>
                 <p class="site-footer__tagline">
                     Números claros para conversaciones difíciles.
@@ -485,6 +486,25 @@
                 <a href="#comparativa">Rendimiento</a>
                 <a href="#partidasRecientes">Historial</a>
             </nav>
+
+            <div class="site-footer__dev">
+                <p class="site-footer__dev-text">
+                    <span class="site-footer__dev-label">Developed by</span>
+                    <span class="site-footer__dev-name">Denegri Demian</span>
+                </p>
+                <ul class="site-footer__socials">
+                    <li>
+                        <a class="social-link" href="https://github.com/Demian-Denegri" target="_blank" rel="noopener noreferrer" aria-label="Perfil de GitHub de Denegri Demian" title="GitHub">
+                            <i class="fa-brands fa-github" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="social-link" href="https://www.linkedin.com/in/demiandenegri" target="_blank" rel="noopener noreferrer" aria-label="Perfil de LinkedIn de Denegri Demian" title="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
             <p class="site-footer__legal">
                 © 2026 LOL Analyzer. Datos oficiales de Riot Games.
                 Este proyecto no está afiliado ni respaldado por Riot Games.
