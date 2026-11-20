@@ -130,13 +130,12 @@ Este repo está pensado como ejercicio de práctica, puedes ir agregando mejoras
 
 - [ ] **Manejo de errores**: Mostrar mensajes si el invocador no existe o si falla la API
 - [ ] **Validación de formulario**: Evitar búsquedas vacías
-- [ ] **Cargar más partidas**: Usar el botón `#cargarMasPartidas` para paginar
 - [ ] **Renderizar historial**: Completar el render del historial usando la plantilla `#plantillaPartida`
-- [ ] **Iconos de rango**: Mostrar emblemas con las URLs de Riot
+- [x] **Iconos de rango**: Mostrar emblemas con las URLs de Riot
 - [ ] **Datos de maestrías**: Mostrar top campeones en el perfil
-- [ ] **Loading states**: Deshabilitar botón mientras se busca
+- [x] **Loading states**: Deshabilitar botón mientras se busca
 - [ ] **Refactor**: Modularizar funciones, evitar código repetido
-- [ ] **Seguridad**: Nunca subir claves reales a repos públicos
+- [x] **Seguridad**: Nunca subir claves reales a repos públicos
 - [x] **Seguridad**: Mover la API key a un Cloudflare Worker (proxy)
 
 ## Aprendizajes clave
